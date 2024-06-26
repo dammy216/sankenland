@@ -64,6 +64,11 @@
             // amountNB
             // 
             this.amountNB.Location = new System.Drawing.Point(409, 174);
+            this.amountNB.Maximum = new decimal(new int[] {
+            1410065408,
+            2,
+            0,
+            0});
             this.amountNB.Name = "amountNB";
             this.amountNB.Size = new System.Drawing.Size(120, 19);
             this.amountNB.TabIndex = 1;

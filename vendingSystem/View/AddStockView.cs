@@ -39,6 +39,7 @@ namespace vendingSystem.View
         private void closeButton_Click(object sender, EventArgs e)
         {
             Close();
+            DialogResult = DialogResult.OK;
         }
     }
 }

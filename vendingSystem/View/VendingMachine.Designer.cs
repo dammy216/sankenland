@@ -32,8 +32,11 @@
             this.inputMoneyNB = new System.Windows.Forms.NumericUpDown();
             this.insertMoneyButton = new System.Windows.Forms.Button();
             this.buyButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.totalMoneyLabel = new System.Windows.Forms.Label();
+            this.stockListView = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.inputMoneyNB)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,6 +53,11 @@
             // inputMoneyNB
             // 
             this.inputMoneyNB.Location = new System.Drawing.Point(530, 135);
+            this.inputMoneyNB.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
             this.inputMoneyNB.Name = "inputMoneyNB";
             this.inputMoneyNB.Size = new System.Drawing.Size(120, 19);
             this.inputMoneyNB.TabIndex = 1;
@@ -62,6 +70,7 @@
             this.insertMoneyButton.TabIndex = 2;
             this.insertMoneyButton.Text = "投入";
             this.insertMoneyButton.UseVisualStyleBackColor = true;
+            this.insertMoneyButton.Click += new System.EventHandler(this.insertMoneyButton_Click);
             // 
             // buyButton
             // 
@@ -71,32 +80,54 @@
             this.buyButton.TabIndex = 3;
             this.buyButton.Text = "購入";
             this.buyButton.UseVisualStyleBackColor = true;
+            this.buyButton.Click += new System.EventHandler(this.buyButton_Click);
             // 
-            // label1
+            // totalMoneyLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(687, 141);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 12);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "投入金額:";
+            this.totalMoneyLabel.AutoSize = true;
+            this.totalMoneyLabel.Location = new System.Drawing.Point(687, 141);
+            this.totalMoneyLabel.Name = "totalMoneyLabel";
+            this.totalMoneyLabel.Size = new System.Drawing.Size(55, 12);
+            this.totalMoneyLabel.TabIndex = 4;
+            this.totalMoneyLabel.Text = "投入金額:";
             // 
-            // listView1
+            // stockListView
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(83, 58);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(366, 259);
-            this.listView1.TabIndex = 5;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.stockListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
+            this.stockListView.FullRowSelect = true;
+            this.stockListView.HideSelection = false;
+            this.stockListView.Location = new System.Drawing.Point(128, 58);
+            this.stockListView.Name = "stockListView";
+            this.stockListView.Size = new System.Drawing.Size(307, 259);
+            this.stockListView.TabIndex = 5;
+            this.stockListView.UseCompatibleStateImageBehavior = false;
+            this.stockListView.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "商品名";
+            this.columnHeader1.Width = 100;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "売値";
+            this.columnHeader2.Width = 100;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "在庫数";
+            this.columnHeader3.Width = 100;
             // 
             // VendingMachine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.listView1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.stockListView);
+            this.Controls.Add(this.totalMoneyLabel);
             this.Controls.Add(this.buyButton);
             this.Controls.Add(this.insertMoneyButton);
             this.Controls.Add(this.inputMoneyNB);
@@ -115,8 +146,11 @@
         private System.Windows.Forms.NumericUpDown inputMoneyNB;
         private System.Windows.Forms.Button insertMoneyButton;
         private System.Windows.Forms.Button buyButton;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Label totalMoneyLabel;
+        private System.Windows.Forms.ListView stockListView;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
     }
 }
 

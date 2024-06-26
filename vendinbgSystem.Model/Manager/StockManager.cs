@@ -50,5 +50,15 @@ namespace vendinbgSystem.Model.Manager
         {
             stockData.Amount += amount;
         }
+
+        public string[] GetStockList(StockData stockData)
+        {
+            var name = stockData.Name;
+            var price  = stockData.Price.ToString();
+            var amount = stockData.Amount.ToString();
+
+            string[] stocks = { name, price, amount };
+            return stocks;
+        }
     }
 }

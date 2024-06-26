@@ -8,11 +8,10 @@ namespace vendinbgSystem.Model.Manager
 {
     public class SalesManager
     {
+        private int _money = 0;
         private static SalesManager _instance;
 
-        private SalesManager()
-        {
-        }
+        private SalesManager() { }
 
         public static SalesManager GetInstance()
         {
@@ -23,5 +22,13 @@ namespace vendinbgSystem.Model.Manager
             }
             return _instance;
         }
+
+        public void SalesProductAmount(StockData data) => data.Amount--;
+
+        public int AddedMoney(int money) => _money += money;
+
+        public int CalcChange(StockData data) =>  _money -= data.Price;
+
+        public void ResetMoney() => _money = 0;
     }
 }
